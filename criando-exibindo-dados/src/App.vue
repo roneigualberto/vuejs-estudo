@@ -17,6 +17,8 @@
     <ul>
           <li v-for="tarefa in tarefas">{{tarefa}}</li>
      </ul>
+
+     <button @click="tarefas=[]"> Limpar </button>
   </div>
 </template>
 
