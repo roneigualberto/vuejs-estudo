@@ -10,6 +10,10 @@
     <div v-if="tarefas.length > 0">
        Existem {{tarefas.length}} tarefas
     </div>
+
+    <ul>
+          <li v-for="tarefa in tarefas">{{tarefa}}</li>
+     </ul>
   </div>
 </template>
 
@@ -25,6 +29,8 @@ export default {
   },
   mounted() {
     setTimeout(() => this.titulo = "Novo Título",200);
+
+    this.tarefas = ['Tarefa1','Tarefa2','Tarefa3','Tarefa4'];
   }
 }
 </script>
