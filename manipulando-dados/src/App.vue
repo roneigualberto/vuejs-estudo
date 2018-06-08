@@ -12,6 +12,8 @@
   <label>Input a computar</label>
   <input v-model="nome" type="text">
 
+    <input v-model="nomeFormatado" type="text">
+
   </div>
 </template>
 
@@ -44,9 +46,14 @@ export default {
     }
   },
   computed: {
-    nomeFormatado() {
-      console.log('executando computed')
-      return this.nome.toUpperCase();
+    nomeFormatado: {
+      get: function () {
+        console.log('executando computed')
+        return this.nome.toUpperCase();
+      },
+      set: function(novoValor) {
+        this.nome = novoValor.substring(0,3);
+      }
     }
   }
 }
