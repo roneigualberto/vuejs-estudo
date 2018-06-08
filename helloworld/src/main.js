@@ -3,8 +3,12 @@ import App from './App.vue'
 
 new Vue({
   el: '#app',
-  mounted() {
-    alert('Hello World!')
-  },
-  render: h => h(App)
+  render: (createElement) => {
+      return createElement('header',
+               {attrs: {id: 'elemento'}},
+              [
+                createElement('h1','Título do post'),
+                createElement('p','Conteudo do post')
+            ]);
+  }
 })
