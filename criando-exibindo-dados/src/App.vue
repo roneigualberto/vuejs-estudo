@@ -4,7 +4,7 @@
     
     <h2>{{subtitulo}}</h2>
 
-    <input v-model="subtitulo" type="text" placeholder="Descrição">
+    <input v-bind:disabled="tarefas.length == 0" v-model="subtitulo" type="text" placeholder="Descrição">
 
     <div v-if="tarefas.length <= 0">
         Não há tarefas
