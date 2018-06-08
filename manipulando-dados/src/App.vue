@@ -8,6 +8,10 @@
   <p> Nome Iniciado: {{nome}} </p>
   <p> Nome Filtrado: {{nome  | formataNome}} </p>
 
+  <p>Nome Computado: {{nomeFormatado}}</p>
+  <label>Input a computar</label>
+  <input v-model="nome" type="text">
+
   </div>
 </template>
 
@@ -37,6 +41,12 @@ export default {
           resultado  += nome.charAt(0).toUpperCase() + nome.slice(1) + ' '
 
       return resultado;
+    }
+  },
+  computed: {
+    nomeFormatado() {
+      console.log('executando computed')
+      return this.nome.toUpperCase();
     }
   }
 }
