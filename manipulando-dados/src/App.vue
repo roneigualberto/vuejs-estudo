@@ -5,6 +5,9 @@
   <button @click="calcula('-')">-</button>
   <button @click="calcula('+')">+</button>
 
+  <p> Nome Iniciado: {{nome}} </p>
+  <p> Nome Filtrado: {{nome  | formataNome}} </p>
+
   </div>
 </template>
 
@@ -13,12 +16,27 @@ export default {
   name: 'lv-contador',
   data () {
     return {
-      total: 10
+      total: 10,
+      nome: "ronei macedo"
     }
   },
   methods: {
     calcula(sinal) {
       this.total = (sinal == '-') ? this.total -1 : this.total + 1;
+    }
+  },
+  filters: {
+    formataNome(valor) {
+      console.log('executando filter');
+
+      valor = valor.toLowerCase();
+      let corta = valor.split(' ');
+      let resultado = '';
+
+      for(let nome of corta)
+          resultado  += nome.charAt(0).toUpperCase() + nome.slice(1) + ' '
+
+      return resultado;
     }
   }
 }
