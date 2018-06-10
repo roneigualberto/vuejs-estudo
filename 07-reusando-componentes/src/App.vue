@@ -29,6 +29,9 @@
 
     </lv-cartao>
 
+    <lv-leitor></lv-leitor>
+    <lv-comentarios></lv-comentarios>
+
 
 
   </div>
@@ -37,10 +40,12 @@
 <script>
 import LvLista from "./LvLista.vue";
 import LvCartao from "./LvCartao.vue";
+import LvLeitor from "./LvLeitor.vue";
+import LvComentarios from "./LvComentarios.vue";
 
 export default {
   name: "app",
-  components: { LvLista, LvCartao }
+  components: { LvLista, LvCartao, LvLeitor, LvComentarios }
 };
 </script>
 
