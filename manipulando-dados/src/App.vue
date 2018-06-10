@@ -1,19 +1,6 @@
 <template>
   <div id="app">
-    <p>{{total}}</p>
-
-  <button @click="calcula('-')">-</button>
-  <button @click="calcula('+')">+</button>
-
-  <p> Nome Iniciado: {{nome}} </p>
-  <p> Nome Filtrado: {{nome  | formataNome}} </p>
-
-  <p>Nome Computado: {{nomeFormatado}}</p>
-  <label>Input a computar</label>
-  <input v-model="nome" type="text">
-
-    <input v-model="nomeFormatado" type="text">
-
+   <LVTime></LVTime>
   </div>
 </template>
 
@@ -29,6 +16,15 @@ export default {
   methods: {
     calcula(sinal) {
       this.total = (sinal == '-') ? this.total -1 : this.total + 1;
+    },
+    recolheResposta() {
+      let valor = this.busca
+
+      setTimeout(()=> {
+        if (valor == this.busca) {
+          this.resultado = 'Terminou de digitar...'
+        }
+      }, 500)
     }
   },
   filters: {
@@ -54,6 +50,12 @@ export default {
       set: function(novoValor) {
         this.nome = novoValor.substring(0,3);
       }
+    }
+  },
+  watch: {
+    busca() {
+      this.resultado = 'Aguardando o término da digitação...'
+      this.recolheResposta()
     }
   }
 }
