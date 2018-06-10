@@ -14,6 +14,21 @@
 
     <lv-lista :lista="['aveia','biscoito', 'bombom', 'leite']"></lv-lista>
 
+    <lv-cartao titulo="Preço">
+      Aqui você encontra preços <strong>baixos</strong>
+
+      <div slot="rodape">
+          Meu  conteúdo do rodapé
+      </div>
+
+    </lv-cartao>
+
+    <lv-cartao titulo="Qualidade">
+
+      Temos os produtos com mais <strong>qualidade</strong> no mercado
+
+    </lv-cartao>
+
 
 
   </div>
@@ -21,10 +36,11 @@
 
 <script>
 import LvLista from "./LvLista.vue";
+import LvCartao from "./LvCartao.vue";
 
 export default {
   name: "app",
-  components: { LvLista }
+  components: { LvLista, LvCartao }
 };
 </script>
 
